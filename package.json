@@ -1,0 +1,42 @@
+{
+  "name": "askllm-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vueuse/core": "^10.11.0",
+    "axios": "^1.7.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-vue-next": "^0.414.0",
+    "pinia": "^2.1.7",
+    "radix-vue": "^1.9.2",
+    "tailwind-merge": "^2.4.0",
+    "tailwindcss-animate": "^1.0.7",
+    "vue": "^3.4.33",
+    "vue-router": "^4.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.11",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "@vue/tsconfig": "^0.5.1",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.39",
+    "shadcn-vue": "^0.10.5",
+    "tailwindcss": "^3.4.6",
+    "terser": "^5.31.3",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.4",
+    "vitest": "^2.0.4",
+    "vue-tsc": "^2.0.28"
+  }
+}
