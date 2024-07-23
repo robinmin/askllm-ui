@@ -1,6 +1,6 @@
 # ASKLLM-UI
 
-Frontend project for askllm
+Frontend project for [robinmin/askllm](https://github.com/robinmin/askllm).
 
 ## Features
 
