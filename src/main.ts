@@ -10,9 +10,14 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Alert } from '@/components/ui/alert'
 
+import { AuthPlugin } from '@/composables/useAuth'
+import { ToastPlugin } from '@/composables/useToast'
+
 function main() {
     const app = createApp(App)
 
+    app.use(AuthPlugin)
+    app.use(ToastPlugin)
     app.use(createPinia())
     app.use(router)
 

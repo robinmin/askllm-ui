@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import api from '../utils/api'
+import { setToken, getToken,removeToken } from '../utils/auth'
 
 interface User {
   id: string
@@ -13,16 +14,17 @@ interface AuthError {
 export const useAuthStore = defineStore('auth', {
   state: () => ({
     user: null as User | null,
-    token: localStorage.getItem('token'),
+    token: getToken() || null,
     error: null as AuthError | null,
   }),
   actions: {
     async login(email: string, password: string) {
+      // debugger
       try {
         const response = await api.login(email, password)
         this.user = response.data.user
         this.token = response.data.token
-        localStorage.setItem('token', this.token || "")
+        setToken(this.token || "")
         this.error = null
       } catch (error) {
         this.handleError(error)
@@ -33,7 +35,7 @@ export const useAuthStore = defineStore('auth', {
         const response = await api.register(email, password)
         this.user = response.data.user
         this.token = response.data.token
-        localStorage.setItem('token', this.token || "")
+        setToken(this.token || "")
         this.error = null
       } catch (error) {
         this.handleError(error)
@@ -42,7 +44,7 @@ export const useAuthStore = defineStore('auth', {
     logout() {
       this.user = null
       this.token = null
-      localStorage.removeItem('token')
+      removeToken()
       this.error = null
     },
     handleError(error: unknown) {
@@ -59,7 +61,7 @@ export const useAuthStore = defineStore('auth', {
         console.log(response)
         // this.user = response.user
         // this.token = response.token
-        // localStorage.setItem('token', this.token || "")
+        // setToken(this.token || "")
         this.error = null
       } catch (error) {
         this.handleError(error)
@@ -71,7 +73,7 @@ export const useAuthStore = defineStore('auth', {
         console.log(response)
         // this.user = response.user
         // this.token = response.token
-        // localStorage.setItem('token', this.token || "")
+        // setToken(this.token || "")
         this.error = null
       } catch (error) {
         this.handleError(error)

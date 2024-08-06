@@ -1,15 +1,15 @@
-const TOKEN_KEY = 'auth_token'
+import config from '@/config'
 
 export const getToken = (): string | null => {
-  return localStorage.getItem(TOKEN_KEY)
+  return localStorage.getItem(config.TOKEN_KEY)
 }
 
 export const setToken = (token: string): void => {
-  localStorage.setItem(TOKEN_KEY, token)
+  localStorage.setItem(config.TOKEN_KEY, token)
 }
 
 export const removeToken = (): void => {
-  localStorage.removeItem(TOKEN_KEY)
+  localStorage.removeItem(config.TOKEN_KEY)
 }
 
 export const isAuthenticated = (): boolean => {
@@ -24,3 +24,5 @@ export const decodeToken = (token: string): any => {
     return null
   }
 }
+
+export default { getToken, setToken, removeToken, isAuthenticated, decodeToken }
